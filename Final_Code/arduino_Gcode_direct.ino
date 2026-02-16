@@ -616,7 +616,7 @@ void loop() {
     processGcodeLine(line);
     
     // Check for program end
-    if (hasCommand(line.toUpperCase(), "M2")) {
+    if (hasCommand(line, "M2")) {
       break;
     }
   }
