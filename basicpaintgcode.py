@@ -13,23 +13,9 @@ canvas.pack()
 
 cartisian_x, last_y = None, None
 cartisian_y = None
+print("G90")
 
-def compute_angles() :
-    if cartisian_x is None or cartisian_y is None:
-        return
 
-    r = math.sqrt(cartisian_x**2 + cartisian_y**2)
-    theta = math.atan2(cartisian_y, cartisian_x)
-
-    angle1 = math.acos(r / 800) + theta
-    angle2 = (math.pi/2 - (angle1 - theta)) * 2
-
-    angle1= math.degrees(angle1)
-    angle1=round(angle1)
-
-    angle2 = math.degrees(angle2)
-    angle2 = round(angle2)
-    print(angle1,',',angle2,sep='')
 
 def start_draw(event):
     global cartisian_x, last_y
@@ -45,7 +31,8 @@ def draw(event):
     cartisian_y = 733-last_y
     cartisian_x = int(cartisian_x)
     cartisian_y = int(cartisian_y)
-    compute_angles()
+    print(f"G1 X{cartisian_x} Y{cartisian_y}")
+  
 
     
   
